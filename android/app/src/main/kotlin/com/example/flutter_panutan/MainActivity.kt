@@ -1,6 +1,7 @@
 package com.example.flutter_panutan
 
-import io.flutter.embedding.android.FlutterActivity
+import io.flutter.embedding.android.FlutterFragmentActivity
 
-class MainActivity: FlutterActivity() {
+// Required by local_auth
+class MainActivity: FlutterFragmentActivity() {
 }

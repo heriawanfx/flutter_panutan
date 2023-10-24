@@ -17,10 +17,8 @@ class MainApp extends StatelessWidget {
         )
       ],
       child: BlocBuilder<AuthBloc, AuthState>(builder: (context, state) {
-        return MaterialApp(
-          initialRoute: state.whenOrNull(loggedIn: (user) {
-            return user != null ? AppRouter.home : AppRouter.login;
-          }),
+        return const MaterialApp(
+          initialRoute: AppRouter.login,
           onGenerateRoute: AppRouter.generatedRoute,
         );
       }),

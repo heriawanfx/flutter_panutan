@@ -17,7 +17,7 @@ dependencies:
     shimmer: ^3.0.0
     fluttertoast: ^8.2.2
     webview_flutter: ^4.2.4
-    local_auth: ^2.1.7
+    local_auth: ^2.1.7 
 
     #Data
     shared_preferences: ^2.2.1
