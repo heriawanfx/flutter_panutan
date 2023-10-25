@@ -15,6 +15,7 @@ class Jumbtron extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('Hai, ${userModel.name}'),
           const Text('Selamat Datang', style: TextStyle(fontSize: 22)),

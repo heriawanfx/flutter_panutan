@@ -54,6 +54,12 @@ class _DashboardPageState extends State<DashboardPage> {
       selectedIcon: Icons.face,
     ),
     DashboardMenu(
+      label: 'Dokumen',
+      page: const Center(child: Text('Dokumen')),
+      icon: Icons.file_copy_outlined,
+      selectedIcon: Icons.file_copy,
+    ),
+    DashboardMenu(
       label: 'Agenda',
       page: const Center(child: Text('Agenda')),
       icon: Icons.calendar_month_outlined,

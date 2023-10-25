@@ -10,15 +10,20 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          const Topbar(),
-          Jumbtron(userModel: UserModel(name: 'Fantio Isdeo Margono')),
-          const QuickMenu(),
-          const Text('Aktivitas Saya'),
-          const SummaryGrid()
-        ],
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Topbar(),
+              Jumbtron(userModel: UserModel(name: 'Fantio Isdeo Margono')),
+              const QuickMenu(),
+              const Text('Aktivitas Saya'),
+              const SummaryGrid()
+            ],
+          ),
+        ),
       ),
     );
   }

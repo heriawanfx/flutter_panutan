@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_panutan/features/home/data/datasources/summary_remote_data_source.dart';
+import 'package:flutter_panutan/features/home/domain/repositories/summary_repository.dart';
 import '../core/remote/auth_interceptor.dart';
 import '../core/remote/dio_handler.dart';
 import '../core/auth/data/datasources/auth_local_datasource.dart';
@@ -14,6 +16,7 @@ final getInstance = GetIt.instance;
 class Injector {
   Future<void> initialize() async {
     await _initCore();
+    _initSummary();
   }
 
   Future<void> _initCore() async {
@@ -53,6 +56,18 @@ class Injector {
       return AuthRepository(
         authLocalDataSource: getInstance(),
         authRemoteDatasource: getInstance(),
+      );
+    });
+  }
+
+  Future<void> _initSummary() async {
+    getInstance.registerLazySingleton<SummaryRemoteDatasource>(() {
+      return SummaryRemoteDatasource(dio: getInstance());
+    });
+
+    getInstance.registerLazySingleton<SummaryRepository>(() {
+      return SummaryRepository(
+        summaryRemoteDatasource: getInstance(),
       );
     });
   }

@@ -23,7 +23,7 @@ class MainApp extends StatelessWidget {
       ],
       child: BlocBuilder<AuthBloc, AuthState>(builder: (context, state) {
         return const MaterialApp(
-          initialRoute: AppRouter.splash,
+          initialRoute: AppRouter.dashboard,
           onGenerateRoute: AppRouter.generatedRoute,
         );
       }),

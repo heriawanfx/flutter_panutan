@@ -12,17 +12,18 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
-    super.initState();
-
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacementNamed(context, AppRouter.dashboard);
     });
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Welcome'),
+    return const Scaffold(
+      body: Center(
+        child: Text('Welcome'),
+      ),
     );
   }
 }

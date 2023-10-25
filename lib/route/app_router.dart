@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_panutan/features/auth/presentation/auth_login_page.dart';
 import 'package:flutter_panutan/features/dashboard/presentation/dashboard_page.dart';
+import 'package:flutter_panutan/features/home/presentation/bloc/summary_bloc.dart';
 import 'package:flutter_panutan/features/splash/presentation/splash_page.dart';
 
 class AppRouter {
@@ -23,7 +25,10 @@ class AppRouter {
         );
       case AppRouter.dashboard:
         return MaterialPageRoute(
-          builder: (_) => const DashboardPage(),
+          builder: (context) {
+            context.read<SummaryBloc>().add(const SummaryEvent.getSummaries());
+            return const DashboardPage();
+          },
         );
       default:
         return MaterialPageRoute(
