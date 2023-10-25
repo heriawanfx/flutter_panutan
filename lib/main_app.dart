@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_panutan/di/injector.dart';
-import 'package:flutter_panutan/features/auth/presentation/bloc/auth_bloc.dart';
-import 'package:flutter_panutan/route/app_router.dart';
+
+import 'di/injector.dart';
+import 'features/auth/presentation/bloc/auth_bloc.dart';
+import 'features/home/presentation/bloc/summary_bloc.dart';
+import 'route/app_router.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -14,11 +16,14 @@ class MainApp extends StatelessWidget {
         BlocProvider(
           create: (context) => AuthBloc(authRepository: getInstance())
             ..add(const AuthEvent.loadAuthSession()),
+        ),
+        BlocProvider(
+          create: (context) => SummaryBloc(summaryRepository: getInstance()),
         )
       ],
       child: BlocBuilder<AuthBloc, AuthState>(builder: (context, state) {
         return const MaterialApp(
-          initialRoute: AppRouter.login,
+          initialRoute: AppRouter.splash,
           onGenerateRoute: AppRouter.generatedRoute,
         );
       }),
